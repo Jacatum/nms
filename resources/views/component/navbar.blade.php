@@ -40,7 +40,7 @@
         Planetas
     </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Nova</a>
+            <a class="dropdown-item" href="/planeta/novo">Novo</a>
             <a class="dropdown-item" href="#">Editar</a>
             <a class="dropdown-item" href="#">Buscar</a>
             <a class="dropdown-item" href="#">Apagar</a>

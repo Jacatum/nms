@@ -21,4 +21,6 @@ Route::get('/galaxia', 'GalaxiaControler@show');
 Route::get('/galaxia/nova', 'GalaxiaController@create');
 Route::post('/galaxia/nova', 'GalaxiaController@store');
 
+Route::get('/planeta/novo', 'PlanetaController@create');
+Route::post('/planeta/novo', 'PlanetaController@store');
 
