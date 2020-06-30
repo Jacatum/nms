@@ -11,6 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(GalaxiasSeeder::class);
+        $this->call(ConflitosSeeder::class);
+        $this->call(RacasSeeder::class);
+        $this->call(SistemasSeeder::class);
         $this->call(MineraisSeeder::class);
+        $this->call(BiologicosSeeder::class);
+        $this->call(TiposSeeder::class);
+        $this->call(ClimasSeeder::class);
+        $this->call(PlanetasSeeder::class);
     }
 }

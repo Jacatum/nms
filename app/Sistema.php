@@ -11,6 +11,16 @@ class Sistema extends Model
         return $this->belongsTo('App\Galaxia');
     }
 
+    public function conflito()
+    {
+        return $this->belongsTo('App\Conflito');
+    }
+
+    public function raca()
+    {
+        return $this->belongsTo('App\Raca');
+    }
+
     public function planetas()
     {
         return $this->hasMany('App\Planeta');

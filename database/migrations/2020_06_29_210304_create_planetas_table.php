@@ -20,7 +20,7 @@ class CreatePlanetasTable extends Migration
             $table->foreign('tipo_id')->references('id')->on('tipos');
             $table->string('farm');
             $table->boolean('portal')->nullable();
-            $table->string('sentinela');
+            $table->string('sentinela')->nullable();
             $table->boolean('tempestade')->nullable();
             $table->boolean('agua')->nullable();
             $table->unsignedBigInteger('clima_id');

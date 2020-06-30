@@ -16,10 +16,12 @@ class CreateSistemasTable extends Migration
         Schema::create('sistemas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('raca');
+            $table->unsignedBigInteger('raca_id');
+            $table->foreign('raca_id')->references('id')->on('racas');
             $table->string('sol');
             $table->integer('num_planetas');
-            $table->string('conflito');
+            $table->unsignedBigInteger('conflito_id');
+            $table->foreign('conflito_id')->references('id')->on('conflitos');
             $table->boolean('estacao');
             $table->unsignedBigInteger('galaxia_id');
             $table->foreign('galaxia_id')->references('id')->on('galaxias');
