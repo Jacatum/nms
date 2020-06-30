@@ -12,9 +12,9 @@ class ClimasSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Clima')->insert(['nome' => 'Quente']);
-        DB::table('Clima')->insert(['nome' => 'Frio']);
-        DB::table('Clima')->insert(['nome' => 'Radioativo']);
-        DB::table('Clima')->insert(['nome' => 'Toxico']);
+        DB::table('climas')->insert(['nome' => 'Quente']);
+        DB::table('climas')->insert(['nome' => 'Frio']);
+        DB::table('climas')->insert(['nome' => 'Radioativo']);
+        DB::table('climas')->insert(['nome' => 'Toxico']);
     }
 }

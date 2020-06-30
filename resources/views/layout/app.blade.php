@@ -6,18 +6,9 @@
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <meta name="csrf-token" content="{{'csrf_token'}}">
         <style>
-            body
-            {
-                padding: 20px;
-            }
 
-            .navbar
-            {
-                margin-bottom: 20px;
-            }
-
-           
-
+            body { padding: 20px; }
+            .navbar{ margin-bottom: 20px; }
             .margem-card { margin: 30px; }
             .row { padding: 10px; }
             h1 {padding: 10px; }
