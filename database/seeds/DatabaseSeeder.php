@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,14 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(GalaxiasSeeder::class);
-        $this->call(ConflitosSeeder::class);
-        $this->call(RacasSeeder::class);
-        $this->call(SistemasSeeder::class);
-        $this->call(MineraisSeeder::class);
-        $this->call(BiologicosSeeder::class);
-        $this->call(TiposSeeder::class);
-        $this->call(ClimasSeeder::class);
-        $this->call(PlanetasSeeder::class);
+        $this->call([
+            GalaxiasSeeder::class,
+            RacasSeeder::class,
+            ConflitosSeeder::class,
+            SistemasSeeder::class,
+            MineraisSeeder::class,
+            BiologicosSeeder::class,
+            TiposSeeder::class,
+            ClimasSeeder::class,
+            PlanetasSeeder::class
+        ]);
     }
 }

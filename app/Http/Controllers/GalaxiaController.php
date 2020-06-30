@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Galaxia;
+use App\Sistema;
 use Illuminate\Http\Request;
 
 class GalaxiaController extends Controller
@@ -24,7 +25,12 @@ class GalaxiaController extends Controller
      */
     public function create()
     {
-        return view('/galaxia/nova');
+        $sistema = Sistema::with(['galaxia'])->get();
+        #var_dump($sistema);
+        return $sistema->toJson();
+        #$galaxia = Galaxia::with(['sistemas'])->get();
+        #return $galaxia->toJson();
+        #return view('/galaxia/nova');
     }
 
     /**

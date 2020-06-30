@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ClimasSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class ClimasSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('nome')->insert(['nome' => 'Atmosfera aquecida']);
+        DB::table('climas')->insert(['nome' => 'Atmosfera aquecida']);
     }
 }

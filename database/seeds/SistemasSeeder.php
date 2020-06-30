@@ -1,7 +1,9 @@
 <?php
 
-use App\Conflito;
+use App\Sistema;
+
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SistemasSeeder extends Seeder
 {
@@ -11,15 +13,15 @@ class SistemasSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
         DB::table('sistemas')->insert([
             'nome' => 'Rulandrei',
-            'conflito_id' => 1,
-            'raca_id' => 0,
             'sol' => 'Amarelo',
             'num_planetas' => 5,
             'estacao' => 1,
-            'galaxia_id' => 0
+            'galaxia_id' => 1,
+            'raca_id' => 1,
+            'conflito_id' => 2
             ]);
     }
 }

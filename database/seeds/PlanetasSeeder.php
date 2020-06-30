@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PlanetasSeeder extends Seeder
 {
@@ -13,14 +14,14 @@ class PlanetasSeeder extends Seeder
     {
         DB::table('planetas')->insert([
             'nome' => 'Tuni VX',
-            'tipo_id' => 0,
             'farm' => 'Sucata Recuperavel',
             'portal' => 0,
             'sentinela' => '',
             'tempestade' => 1,
             'agua' => 0,
-            'clima_id' => 0,
-            'sistema_id' = 0
+            'tipo_id' => 1,
+            'clima_id' => 1,
+            'Sistema_id' => 1
         ]);
     }
 }

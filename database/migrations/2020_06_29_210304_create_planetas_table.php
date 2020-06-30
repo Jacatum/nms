@@ -16,17 +16,17 @@ class CreatePlanetasTable extends Migration
         Schema::create('planetas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->unsignedBigInteger('tipo_id');
-            $table->foreign('tipo_id')->references('id')->on('tipos');
             $table->string('farm');
             $table->boolean('portal')->nullable();
             $table->string('sentinela')->nullable();
             $table->boolean('tempestade')->nullable();
             $table->boolean('agua')->nullable();
-            $table->unsignedBigInteger('clima_id');
+            $table->unsignedBigInteger('tipo_id')->nullable();
+            $table->foreign('tipo_id')->references('id')->on('tipos')->nullable();
+            $table->unsignedBigInteger('clima_id')->nullable();
             $table->foreign('clima_id')->references('id')->on('climas')->nullable();
-            $table->unsignedBigInteger('sistema_id');
-            $table->foreign('sistema_id')->references('id')->on('sistemas');
+            $table->unsignedBigInteger('sistema_id')->nullable();
+            $table->foreign('sistema_id')->references('id')->on('sistemas')->nullable();
             $table->timestamps();
         });
     }

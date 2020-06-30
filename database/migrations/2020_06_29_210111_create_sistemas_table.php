@@ -16,15 +16,15 @@ class CreateSistemasTable extends Migration
         Schema::create('sistemas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->unsignedBigInteger('raca_id');
-            $table->foreign('raca_id')->references('id')->on('racas');
             $table->string('sol');
-            $table->integer('num_planetas');
-            $table->unsignedBigInteger('conflito_id');
-            $table->foreign('conflito_id')->references('id')->on('conflitos');
             $table->boolean('estacao');
-            $table->unsignedBigInteger('galaxia_id');
-            $table->foreign('galaxia_id')->references('id')->on('galaxias');
+            $table->integer('num_planetas');
+            $table->unsignedBigInteger('raca_id')->nullable();
+            $table->foreign('raca_id')->references('id')->on('racas')->nullable();
+            $table->unsignedBigInteger('conflito_id')->nullable();
+            $table->foreign('conflito_id')->references('id')->on('conflitos')->nullable();
+            $table->unsignedBigInteger('galaxia_id')->nullable();
+            $table->foreign('galaxia_id')->references('id')->on('galaxias')->nullable();
             $table->timestamps();
         });
     }

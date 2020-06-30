@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class GalaxiasSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class GalaxiasSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Galaxias')->insert(['nome' => 'Euclid']);
+        DB::table('galaxias')->insert(['nome' => 'Euclid']);
     }
 }
