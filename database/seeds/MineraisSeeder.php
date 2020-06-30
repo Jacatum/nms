@@ -45,7 +45,6 @@ class MineraisSeeder extends Seeder
         DB::table('minerais')->insert(['nome' => 'Pirita']);
         DB::table('minerais')->insert(['nome' => 'Amônia']);
         DB::table('minerais')->insert(['nome' => 'Dioxita']);
-        DB::table('minerais')->insert(['nome' => 'Mordita']);
         DB::table('minerais')->insert(['nome' => 'Púgneo']);
         DB::table('minerais')->insert(['nome' => 'Prata']);
         DB::table('minerais')->insert(['nome' => 'Sulfurino']);

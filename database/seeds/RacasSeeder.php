@@ -13,5 +13,8 @@ class RacasSeeder extends Seeder
     public function run()
     {
         DB::table('racas')->insert(['nome' => 'Gek']);
+        DB::table('racas')->insert(['nome' => 'Korvax']);
+        DB::table('racas')->insert(['nome' => 'Vy keen']);
+        
     }
 }
