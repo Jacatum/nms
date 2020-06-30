@@ -14,10 +14,10 @@ class CreatePlanetaMineralsTable extends Migration
     public function up()
     {
         Schema::create('planetas_minerais', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_planeta');
-            $table->foreign('id_planeta')->references('id')->on('planetas');
-            $table->unsignedBigInteger('id_mineral');
-            $table->foreign('id_mineral')->references('id')->on('minerais');
+            $table->unsignedBigInteger('planeta_id');
+            $table->foreign('planeta_id')->references('id')->on('planetas');
+            $table->unsignedBigInteger('mineral_id');
+            $table->foreign('mineral_id')->references('id')->on('minerais');
             $table->timestamps();
         });
     }

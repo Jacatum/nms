@@ -38,8 +38,8 @@ class PlanetaController extends Controller
     {
         $planeta = new Planeta();
         $planeta->nome = $request->input('nome');
-        
         $planeta->save();
+        
     }
 
     /**

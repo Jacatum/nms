@@ -14,10 +14,10 @@ class CreatePlanetaBiologicosTable extends Migration
     public function up()
     {
         Schema::create('planetas_biologicos', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_planeta');
-            $table->foreign('id_planeta')->references('id')->on('planetas');
-            $table->unsignedBigInteger('id_biologico');
-            $table->foreign('id_biologico')->references('id')->on('biologicos');
+            $table->unsignedBigInteger('planeta_id');
+            $table->foreign('planeta_id')->references('id')->on('planetas');
+            $table->unsignedBigInteger('biologico_id');
+            $table->foreign('biologico_id')->references('id')->on('biologicos');
             $table->timestamps();
         });
     }
