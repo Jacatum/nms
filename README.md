@@ -5,5 +5,5 @@ App para cadastrar e organizar Galaxias, Sistemas e planetas visitados no jogo N
 Atualmente estamos utilizando o FrameWork Laravel e JavaScript.
 
 # Devs
-Felipe(Jacatum)
+Felipe(Jacatum)  
 Danilo(Merlinpoof)
