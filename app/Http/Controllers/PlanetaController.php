@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Biologico;
 use App\Planeta;
 use App\Mineral;
 use Illuminate\Http\Request;
@@ -25,7 +26,10 @@ class PlanetaController extends Controller
      */
     public function create()
     {
-        return view('/planeta/novo', ['mineral' => Mineral::all()]);
+        return view('/planeta/novo', [
+            'mineral' => Mineral::all(),
+            'biologico' => Biologico::all()
+        ]);
     }
 
     /**
