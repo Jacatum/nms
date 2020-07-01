@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Biologico;
 use App\Clima;
+use App\Galaxia;
 use App\Planeta;
 use App\Mineral;
 use App\Sistema;
@@ -57,15 +58,42 @@ class PlanetaController extends Controller
         $planeta->clima()->associate($request->input('clima'));
         $planeta->save();
 
-        foreach ($request->input('mineral') as $mi)
+        $mineral = $request->input('mineral');
+        if (isset($mineral))
         {
-            $planeta->minerais()->attach($mi);
+            foreach ($mineral as $mi)
+            {
+                $planeta->minerais()->attach($mi);
+            }
         }
 
-        foreach ($request->input('biologico') as $bi)
+        $biologico = $request->input('biologico');
+        if (isset($biologico))
         {
-            $planeta->biologicos()->attach($bi);
+            foreach ($biologico as $bi)
+            {
+                $planeta->biologicos()->attach($bi);
+            }
         }
+    }
+
+    public function search_get()
+    {   
+        return view('/planeta/busca', [
+            'mineral' => Mineral::all(),
+            'biologico' => Biologico::all(),
+            'sistema' => Sistema::all(),
+            'tipo' => Tipo::all(),
+            'clima' => Clima::all(),
+            'galaxia' => Galaxia::all()
+        ]);
+    }
+
+    public function search_post(Request $request)
+    {   
+        $query = Planeta::where('nome', 'LIKE', '%' . $request->nome . '%')->with(['sistema', 'sistema.galaxia'])->get();
+        #var_dump($query);
+        return view('/planeta/busca', ['resultado' => $query]);
     }
 
     /**
