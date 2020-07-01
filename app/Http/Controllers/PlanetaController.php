@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Biologico;
+use App\Clima;
 use App\Planeta;
 use App\Mineral;
+use App\Sistema;
+use App\Tipo;
 use Illuminate\Http\Request;
 
 class PlanetaController extends Controller
@@ -28,7 +31,10 @@ class PlanetaController extends Controller
     {
         return view('/planeta/novo', [
             'mineral' => Mineral::all(),
-            'biologico' => Biologico::all()
+            'biologico' => Biologico::all(),
+            'sistema' => Sistema::all(),
+            'tipo' => Tipo::all(),
+            'clima' => Clima::all()
         ]);
     }
 
@@ -42,9 +48,24 @@ class PlanetaController extends Controller
     {
         $planeta = new Planeta();
         $planeta->nome = $request->input('nome');
+        $planeta->farm = $request->input('farm');
+        $planeta->sentinela = $request->input('sentinela');
+        $planeta->tempestade = $request->input('tempestade');
+        $planeta->agua = $request->input('agua');
+        $planeta->sistema()->associate($request->input('sistema'));
+        $planeta->tipo()->associate($request->input('tipo'));
+        $planeta->clima()->associate($request->input('clima'));
         $planeta->save();
-        #$planeta->sistema()->associate($request->input('sistema'));
-        
+
+        foreach ($request->input('mineral') as $mi)
+        {
+            $planeta->minerais()->attach($mi);
+        }
+
+        foreach ($request->input('biologico') as $bi)
+        {
+            $planeta->biologicos()->attach($bi);
+        }
     }
 
     /**
