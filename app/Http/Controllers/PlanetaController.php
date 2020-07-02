@@ -88,13 +88,28 @@ class PlanetaController extends Controller
             'galaxia' => Galaxia::all()
         ]);
     }
-
+    /*
     public function search_post(Request $request)
     {   
-        $query = Planeta::where('nome', 'LIKE', '%' . $request->nome . '%')->with(['sistema', 'sistema.galaxia'])->get();
-        #var_dump($query);
+        if(isset($request->nome)) {
+            $query = Planeta::where('nome', 'LIKE', '%' . $request->nome . '%')->with(['sistema', 'sistema.galaxia'])->get();
+        }
         return view('/planeta/pesquisa', ['resultado' => $query]);
     }
+    */
+    public function search_post(Request $request)
+    {   
+        $dados = $request->all();
+        $resultado = Planeta::where(function ($query) use($dados) {
+            if(isset($dados['nome'])) {
+                $query->where('nome', 'LIKE', '%' . $dados['nome'] . '%');
+            }
+            if(isset($dados['farm'])) {
+                $query->where('farm', 'LIKE', $dados['farm']);
+            }
+        })->get();
+        return view('/planeta/pesquisa', ['resultado' => $resultado]);
+    }       
 
     /**
      * Display the specified resource.

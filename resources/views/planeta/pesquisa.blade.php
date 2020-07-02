@@ -153,9 +153,9 @@
             </div>    
 
         <div style="text-align: center;" id="botoes">   
-            <a type="a" class="btn btn-primary" id="add-mineral">Mais Minerais</a>
-            <a type="a" class="btn btn-primary" id="add-biologico">Mais Biologicos</a>
-            <a class="btn btn-success" type="submit">Cadastrar</a>
+            <button type="a" class="btn btn-primary" id="add-mineral">Mais Minerais</button>
+            <button type="a" class="btn btn-primary" id="add-biologico">Mais Biologicos</button>
+            <button class="btn btn-success" type="submit">Pesquisar</button>
         </div>
 
     </form>
