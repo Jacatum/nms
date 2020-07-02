@@ -26,7 +26,7 @@ Route::post('/sistema/novo', 'SistemaController@store');
 
 Route::get('/planeta/novo', 'PlanetaController@create');
 Route::post('/planeta/novo', 'PlanetaController@store');
-Route::get('/planeta/busca', 'PlanetaController@search_get');
-Route::post('/planeta/busca', 'PlanetaController@search_post');
+Route::get('/planeta/pesquisa', 'PlanetaController@search_get');
+Route::post('/planeta/pesquisa', 'PlanetaController@search_post');
 
 

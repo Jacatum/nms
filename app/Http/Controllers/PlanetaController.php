@@ -79,7 +79,7 @@ class PlanetaController extends Controller
 
     public function search_get()
     {   
-        return view('/planeta/busca', [
+        return view('/planeta/pesquisa', [
             'mineral' => Mineral::all(),
             'biologico' => Biologico::all(),
             'sistema' => Sistema::all(),
@@ -93,7 +93,7 @@ class PlanetaController extends Controller
     {   
         $query = Planeta::where('nome', 'LIKE', '%' . $request->nome . '%')->with(['sistema', 'sistema.galaxia'])->get();
         #var_dump($query);
-        return view('/planeta/busca', ['resultado' => $query]);
+        return view('/planeta/pesquisa', ['resultado' => $query]);
     }
 
     /**

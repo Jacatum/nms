@@ -15,9 +15,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/galaxia/nova">Nova</a>
-            <a class="dropdown-item" href="#">Editar</a>
-            <a class="dropdown-item" href="#">Buscar</a>
-            <a class="dropdown-item" href="#">Apagar</a>
+            <a class="dropdown-item" href="/galaxia/pesquisa">Pesquisa</a>
           </div>
         </li>
 
@@ -28,9 +26,7 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="/sistema/novo">Novo</a>
-        <a class="dropdown-item" href="#">Editar</a>
-        <a class="dropdown-item" href="#">Buscar</a>
-        <a class="dropdown-item" href="#">Apagar</a>
+        <a class="dropdown-item" href="/sistema/pesquisa">Pesquisa</a>
       </div>
     </li>
 
@@ -41,9 +37,7 @@
     </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/planeta/novo">Novo</a>
-            <a class="dropdown-item" href="#">Editar</a>
-            <a class="dropdown-item" href="#">Buscar</a>
-            <a class="dropdown-item" href="#">Apagar</a>
+            <a class="dropdown-item" href="/planeta/pesquisa">Pesquisa</a>
         </div>
     </li>
 
@@ -53,10 +47,8 @@
     Minerais
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="#">Nova</a>
-    <a class="dropdown-item" href="#">Editar</a>
-    <a class="dropdown-item" href="#">Buscar</a>
-    <a class="dropdown-item" href="#">Apagar</a>
+    <a class="dropdown-item" href="/mineral/novo">Novo</a>
+    <a class="dropdown-item" href="/mineral/pesquisa">Pesquisa</a>
   </div>
 </li>
 
@@ -66,10 +58,8 @@
     Biologicos
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="#">Nova</a>
-    <a class="dropdown-item" href="#">Editar</a>
-    <a class="dropdown-item" href="#">Buscar</a>
-    <a class="dropdown-item" href="#">Apagar</a>
+    <a class="dropdown-item" href="/biologico/novo">Novo</a>
+    <a class="dropdown-item" href="/biologico/pesquisa">Pesquisa</a>
   </div>
 </li>
 

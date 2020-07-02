@@ -52,7 +52,7 @@
         }
     </style>
 
-    <form action="/planeta/busca" method="post">
+    <form action="/planeta/pesquisa" method="post">
         @csrf
         
         <h1 style="text-align: center">Pesquisar Planetas</h1>
