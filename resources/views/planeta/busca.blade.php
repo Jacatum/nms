@@ -6,19 +6,25 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Galaxia</th>
-                    <th scope="col">Sistema</th>
-                    <th scope="col">Planeta</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Galaxia</th>
+                        <th scope="col">Sistema</th>
+                        <th scope="col">Planeta</th>
+                        <th style="text-align: center" scope="col">Editar</th>
                     </tr>
                 </thead>
                 @foreach ($resultado as $re)
                     <tbody>
                         <tr>
-                        <th scope="row">{{$re->id}}</th>
-                        <td>{{$re->sistema->galaxia->nome}}</td>
-                        <td>{{$re->sistema->nome}}</td>
-                        <td>{{$re->nome}}</td>
+                            <th scope="row">{{$re->id}}</th>
+                            <td>{{$re->sistema->galaxia->nome}}</td>
+                            <td>{{$re->sistema->nome}}</td>
+                            <td>{{$re->nome}}</td>
+                            <td style="text-align: center">
+                                <a class="btn btn-sm btn-primary" href=""><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-sm btn-primary" href=""><i class="fa fa-pencil"></i></a>
+                                <a class="btn btn-sm btn-danger" href=""><i class="fa fa-trash"></i></a>
+                            </td>
                         </tr>
                     </tbody>
                 @endforeach
@@ -147,9 +153,9 @@
             </div>    
 
         <div style="text-align: center;" id="botoes">   
-            <button type="button" class="btn btn-primary" id="add-mineral">Mais Minerais</button>
-            <button type="button" class="btn btn-primary" id="add-biologico">Mais Biologicos</button>
-            <button class="btn btn-success" type="submit">Cadastrar</button>
+            <a type="a" class="btn btn-primary" id="add-mineral">Mais Minerais</a>
+            <a type="a" class="btn btn-primary" id="add-biologico">Mais Biologicos</a>
+            <a class="btn btn-success" type="submit">Cadastrar</a>
         </div>
 
     </form>
