@@ -53,6 +53,7 @@ class PlanetaController extends Controller
         $planeta->sentinela = $request->input('sentinela');
         $planeta->tempestade = $request->input('tempestade');
         $planeta->agua = $request->input('agua');
+        $planeta->portal = $request->input('portal');
         $planeta->sistema()->associate($request->input('sistema'));
         $planeta->tipo()->associate($request->input('tipo'));
         $planeta->clima()->associate($request->input('clima'));
@@ -88,25 +89,64 @@ class PlanetaController extends Controller
             'galaxia' => Galaxia::all()
         ]);
     }
-    /*
-    public function search_post(Request $request)
-    {   
-        if(isset($request->nome)) {
-            $query = Planeta::where('nome', 'LIKE', '%' . $request->nome . '%')->with(['sistema', 'sistema.galaxia'])->get();
-        }
-        return view('/planeta/pesquisa', ['resultado' => $query]);
-    }
-    */
+   
     public function search_post(Request $request)
     {   
         $dados = $request->all();
-        $resultado = Planeta::where(function ($query) use($dados) {
+        $resultado = Planeta::where(function($query) use($dados) {
+
             if(isset($dados['nome'])) {
                 $query->where('nome', 'LIKE', '%' . $dados['nome'] . '%');
             }
-            if(isset($dados['farm'])) {
-                $query->where('farm', 'LIKE', $dados['farm']);
+
+            if(isset($dados['galaxia'])) {
+                $query->where('galaxia_id', $dados['galaxia']);
             }
+
+            if(isset($dados['sistema'])) {
+                $query->where('sistema_id', $dados['sistema']);
+            }
+
+            if(isset($dados['farm'])) {
+                $query->where('farm', $dados['farm']);
+            }
+
+            if(isset($dados['sentinela'])) {
+                $query->where('sentinela', $dados['sentinela']);
+            }
+
+            if(isset($dados['tempestade'])) {
+                $query->where('tempestade', $dados['tempestade']);
+            }
+
+            if(isset($dados['agua'])) {
+                $query->where('agua', $dados['agua']);
+            }
+
+            if(isset($dados['tipo'])) {
+                $query->where('tipo', $dados['tipo']);
+            }
+
+            if(isset($dados['clima'])) {
+                $query->where('clima', $dados['clima']);
+            }
+
+            if(isset($dados['portal'])) {
+                $query->where('portal', $dados['portal']);
+            }
+            /*
+            if(isset($dados['mineral'])) {
+                foreach($dados['mineral'] as $mi) {
+                    $query->where('mineral', $mi);
+                }
+            }
+
+            if(isset($dados['biologico'])) {
+                foreach($dados['biologico'] as $bi) {
+                    $query->where('biologico', $bi);
+                }
+            }
+            */
         })->get();
         return view('/planeta/pesquisa', ['resultado' => $resultado]);
     }       

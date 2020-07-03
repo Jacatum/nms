@@ -58,7 +58,7 @@
         </div>
         
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
                 <label for="sistema">Sistema:</label>
                 <select id="sistema" class="form-control" name="sistema">
                     <option selected value="">Sistema</option>
@@ -67,7 +67,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <label for="agua">Agua:</label>
                 <select id="agua" class="form-control" name="agua">
                     <option selected value="">Agua</option>
@@ -75,7 +75,7 @@
                         <option value="0">Não</option>
                 </select>
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <label for="tipo">Tipo:</label>
                 <select id="tipo" class="form-control" name="tipo">
                     <option selected value="">Tipo</option>
@@ -84,13 +84,21 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <label for="clima">Clima:</label>
                 <select id="clima" class="form-control" name="clima">
                     <option selected value="">Clima</option>
                     @foreach ($clima as $cl)
                         <option value="{{$cl->id}}">{{$cl->nome}}</option>
                     @endforeach
+                </select>
+            </div>
+            <div class="col-2">
+                <label for="portal">Portal:</label>
+                <select id="portal" class="form-control" name="portal">
+                    <option selected value="">Portal</option>
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
                 </select>
             </div>
 

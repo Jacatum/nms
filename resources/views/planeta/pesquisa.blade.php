@@ -52,16 +52,54 @@
         }
     </style>
 
-    <form action="/planeta/pesquisa" method="post">
-        @csrf
+<form action="/planeta/pesquisa" method="post">
+    @csrf
+    
+    <h1 style="text-align: center">Pesquisar Planetas</h1>
+    <div class="row">
+        <div class="col-4">
+            <label for="nome">Nome:</label>
+            <input id="nome" type="text" class="form-control" placeholder="Nome do Planeta" name="nome">
+        </div>
+        <div class="col-2">
+            <label for="galaxia">Galaxia:</label>
+            <select id="galaxia" class="form-control" name="galaxia">
+                <option selected value="">Galaxia</option>
+                @foreach ($galaxia as $g)
+                    <option value="{{$g->id}}">{{$g->nome}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-2">
+            <label for="sistema">Sistema:</label>
+            <select id="sistema" class="form-control" name="sistema">
+                <option selected value="">Sistema</option>
+                @foreach ($sistema as $s)
+                <option value="{{$s->id}}">{{$s->nome}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-2">
+            <label for="sentinela">Sentinela:</label>
+            <select id="sentinela" class="form-control" name="sentinela">
+                <option selected value="">Sentinela</option>
+                <option value="Baixo">Baixo</option>
+                <option value="Tenso">Tenso</option>
+                <option value="Agressivo">Agressivo</option>
+            </select>
+                </div>
+            <div class="col-2">
+                <label for="tempestade">Tempestade:</label>
+                <select id="tempestade" class="form-control" name="tempestade">
+                    <option selected value="">Tempestade</option>
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
+                    </select>
+                </div>
+        </div>
         
-        <h1 style="text-align: center">Pesquisar Planetas</h1>
         <div class="row">
-            <div class="col-3">
-                <label for="nome">Nome:</label>
-                <input id="nome" type="text" class="form-control" placeholder="Nome do Planeta" name="nome">
-            </div>
-            <div class="col-3">
+            <div class="col-2">
                 <label for="farm">Farm:</label>
                 <select id="farm" class="form-control" name="farm">
                     <option selected value="">Farm</option>
@@ -70,36 +108,7 @@
                     <option value="Sucata Reciclavel">Sucata Reciclavel</option>
                 </select>
             </div>
-            <div class="col-3">
-                <label for="sentinela">Sentinela:</label>
-                <select id="sentinela" class="form-control" name="sentinela">
-                    <option selected value="">Sentinela</option>
-                        <option value="Baixo">Baixo</option>
-                        <option value="Tenso">Tenso</option>
-                        <option value="Agressivo">Agressivo</option>
-                </select>
-            </div>
-            <div class="col-3">
-                <label for="tempestade">Tempestade:</label>
-                <select id="tempestade" class="form-control" name="tempestade">
-                    <option selected value="">Tempestade</option>
-                        <option value="1">Sim</option>
-                        <option value="0">Não</option>
-                </select>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-3">
-                <label for="sistema">Sistema:</label>
-                <select id="sistema" class="form-control" name="sistema">
-                    <option selected value="">Sistema</option>
-                    @foreach ($sistema ?? '' as $s)
-                        <option value="{{$s->id}}">{{$s->nome}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-3">
+            <div class="col-2">
                 <label for="agua">Agua:</label>
                 <select id="agua" class="form-control" name="agua">
                     <option selected value="">Agua</option>
@@ -107,7 +116,7 @@
                         <option value="0">Não</option>
                 </select>
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <label for="tipo">Tipo:</label>
                 <select id="tipo" class="form-control" name="tipo">
                     <option selected value="">Tipo</option>
@@ -116,13 +125,21 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <label for="clima">Clima:</label>
                 <select id="clima" class="form-control" name="clima">
                     <option selected value="">Clima</option>
                     @foreach ($clima as $cl)
                         <option value="{{$cl->id}}">{{$cl->nome}}</option>
                     @endforeach
+                </select>
+            </div>
+            <div class="col-2">
+                <label for="portal">Portal:</label>
+                <select id="portal" class="form-control" name="portal">
+                    <option selected value="">Portal</option>
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
                 </select>
             </div>
 
@@ -153,8 +170,8 @@
             </div>    
 
         <div style="text-align: center;" id="botoes">   
-            <button type="a" class="btn btn-primary" id="add-mineral">Mais Minerais</button>
-            <button type="a" class="btn btn-primary" id="add-biologico">Mais Biologicos</button>
+            <button type="button" class="btn btn-primary" id="add-mineral">Mais Minerais</button>
+            <button type="button" class="btn btn-primary" id="add-biologico">Mais Biologicos</button>
             <button class="btn btn-success" type="submit">Pesquisar</button>
         </div>
 
