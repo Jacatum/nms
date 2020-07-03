@@ -47,13 +47,45 @@ class PlanetaController extends Controller
      */
     public function store(Request $request)
     {
-        $planeta = Planeta::make($request->all());
-        $planeta->save();
+        $planeta = Planeta::make($this->validator($request));
 
+        if($request->sistema && $request->sistema != null) {
+            if($sistema = Sistema::find($request->sistema)){
+                $sistema->planetas()->save($planeta);
+            } else {
+                return redirect()->back()->withErrors(['sistema_invalid' => 'Sistema inválido']);
+            }
+        } else {
+            return redirect()->back()->withErrors(['sistema_missing' => 'Sistema Obrigatório']);
+        }
+
+        if($planeta->id) {
+            $planeta->minerais()->sync($request->mineral??[]); // null coalescing
+            $planeta->biologicos()->sync($request->biologico??[]); // null coalescing
+        }
+
+        return redirect()->action('PlanetaController@search_get')->with('success','Planeta Cadastrado!');
+    }
+
+    public function validator(Request $request)
+    {
+        return $request->validate([
+            'agua' => 'boolean|nullable',
+            'farm' => 'required|string',
+            'nome' => 'required',
+            'portal' => 'boolean|nullable',
+            'sentinela' => 'string|nullable',
+            'tempestade' => 'boolean|nullable',
+            'tipo_id' => 'int|nullable',
+            'clima_id' => 'int|nullable',
+            'sistema' => 'int|required'
+        ]);
     }
 
     public function search_get()
-    {   
+    {
+        #return redirect()->action('PlanetaController@create') ->with('success', ['Planeta Cadastrado!']);
+
         return view('/planeta/pesquisa', [
             'mineral' => Mineral::all(),
             'biologico' => Biologico::all(),
@@ -63,11 +95,26 @@ class PlanetaController extends Controller
             'galaxia' => Galaxia::all()
         ]);
     }
+    
    
     public function search_post(Request $request)
-    {   
-        $dados = Planeta::search($request->all());
-        return view('/planeta/pesquisa', ['resultado' => $dados]);
+    {
+        #$campos = $this->validator($request);
+        #$planetas = Planeta::with(['sistema', 'sistema.galaxia'])->search($campos)->get();
+        $campos = $request->validate([
+            'agua' => 'boolean|nullable',
+            'farm' => 'string|nullable',
+            'nome' => 'string|nullable',
+            'portal' => 'boolean|nullable',
+            'sentinela' => 'string|nullable',
+            'tempestade' => 'boolean|nullable',
+            'tipo_id' => 'int|nullable',
+            'clima_id' => 'int|nullable',
+            'sistema_id' => 'int|nullable',
+            'galaxia_id' => 'int|nullable'
+        ]);
+        $planetas = Planeta::with(['sistema', 'galaxia'])->search($campos)->get();
+        return view('/planeta/pesquisa', ['planetas' => $planetas]);
     }       
 
     /**

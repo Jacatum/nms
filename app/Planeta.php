@@ -32,44 +32,45 @@ class Planeta extends Model
         return $this->belongsToMany('App\Biologico', 'planetas_biologicos');
     }
     
+    protected $fillable = [
+        'agua',
+        'farm',
+        'nome',
+        'sentinela',
+        'tempestade',
+        'tipo_id',
+        'clima_id',
+        'portal',
+    ];
+
     public static function make(array $attributes):Planeta
     {
-        
-        #$planeta = new Planeta($attributes);
-        $planeta = new Planeta();
-        $planeta->nome = $attributes['nome'];
-        $planeta->farm = $attributes['farm'];
-        $planeta->sentinela = $attributes['sentinela'];
-        $planeta->tempestade = $attributes['tempestade'];
-        $planeta->agua = $attributes['agua'];
-        $planeta->portal = $attributes['portal'];
-        $planeta->sistema()->associate($attributes['sistema']);
-        $planeta->tipo()->associate($attributes['tipo']);
-        $planeta->clima()->associate($attributes['clima']);
-    
+        $planeta = new Planeta($attributes);
         return $planeta;
-        
-        $mineral = $attributes(['mineral']);
-        if (isset($mineral))
-        {
-            foreach ($mineral as $mi)
-            {
-                $planeta->minerais()->attach($mi);
-            }
-        }
-    
-        $biologico = $attributes(['biologico']);
-        if (isset($biologico))
-        {
-            foreach ($biologico as $bi)
-            {
-                $planeta->biologicos()->attach($bi);
-            }
-        }
-    
     }
 
-    public static function search($dados)
+    public function scopeSearch($query, array $params)
+    {
+        #dd($params);
+        foreach ($params as $param_name => $param_value) {
+            switch ($param_name) {
+                case 'nome':
+                    $query->where($param_name,'LIKE',"%$param_value%");
+                    break;
+                case 'galaxia_id':
+                    $query->where($param_name,$param_value);
+                    break;
+                default:
+                    if($param_value !== null) {
+                        $query->where($param_name,$param_value);  
+                    }
+                    break;
+            }
+        }
+        return $query;
+    }    
+    
+    public static function fullSearch($dados)
     {
         $resultado = Planeta::where(function($query) use($dados) {
 

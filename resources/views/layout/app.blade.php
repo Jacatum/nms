@@ -21,6 +21,8 @@
         <div class="container">
             @component('component.navbar')
             @endcomponent
+            @include('layout.errors')
+            @include('layout.messages')
             <main role="main">
                 @hasSection ('body')
                     @yield('body')   

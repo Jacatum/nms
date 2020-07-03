@@ -77,7 +77,7 @@
             </div>
             <div class="col-4">
                 <label for="tipo">Tipo:</label>
-                <select id="tipo" class="form-control" name="tipo">
+                <select id="tipo" class="form-control" name="tipo_id">
                     <option selected value="">Tipo</option>
                     @foreach ($tipo as $ti)
                         <option value="{{$ti->id}}">{{$ti->nome}}</option>
@@ -86,7 +86,7 @@
             </div>
             <div class="col-2">
                 <label for="clima">Clima:</label>
-                <select id="clima" class="form-control" name="clima">
+                <select id="clima" class="form-control" name="clima_id">
                     <option selected value="">Clima</option>
                     @foreach ($clima as $cl)
                         <option value="{{$cl->id}}">{{$cl->nome}}</option>

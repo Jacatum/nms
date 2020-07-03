@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@if (isset($resultado))
+@if (isset($planetas))
 
     @section('body')
             <table class="table table-striped">
@@ -13,13 +13,13 @@
                         <th style="text-align: center" scope="col">Editar</th>
                     </tr>
                 </thead>
-                @foreach ($resultado as $re)
+                @foreach ($planetas as $planeta)
                     <tbody>
                         <tr>
-                            <th scope="row">{{$re->id}}</th>
-                            <td>{{$re->sistema->galaxia->nome}}</td>
-                            <td>{{$re->sistema->nome}}</td>
-                            <td>{{$re->nome}}</td>
+                            <th scope="row">{{$planeta->id}}</th>
+                            <td>{{$planeta->sistema->galaxia->nome}}</td>
+                            <td>{{$planeta->sistema->nome}}</td>
+                            <td>{{$planeta->nome}}</td>
                             <td style="text-align: center">
                                 <a class="btn btn-sm btn-primary" href=""><i class="fa fa-eye"></i></a>
                                 <a class="btn btn-sm btn-primary" href=""><i class="fa fa-pencil"></i></a>
@@ -62,8 +62,8 @@
             <input id="nome" type="text" class="form-control" placeholder="Nome do Planeta" name="nome">
         </div>
         <div class="col-2">
-            <label for="galaxia">Galaxia:</label>
-            <select id="galaxia" class="form-control" name="galaxia">
+            <label for="galaxia_id">Galaxia:</label>
+            <select id="galaxia_id" class="form-control" name="galaxia_id">
                 <option selected value="">Galaxia</option>
                 @foreach ($galaxia as $g)
                     <option value="{{$g->id}}">{{$g->nome}}</option>
@@ -71,8 +71,8 @@
             </select>
         </div>
         <div class="col-2">
-            <label for="sistema">Sistema:</label>
-            <select id="sistema" class="form-control" name="sistema">
+            <label for="sistema_id">Sistema:</label>
+            <select id="sistema_id" class="form-control" name="sistema_id">
                 <option selected value="">Sistema</option>
                 @foreach ($sistema as $s)
                 <option value="{{$s->id}}">{{$s->nome}}</option>
