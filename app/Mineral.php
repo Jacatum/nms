@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Planeta;
 
 class Mineral extends Model
 {
@@ -10,6 +11,6 @@ class Mineral extends Model
 
     public function planetas()
     {
-        return $this->belongsToMany('App\Planeta', 'planetas_minerais');
+        return $this->belongsToMany(Planeta::class, 'planetas_minerais');
     }
 }
