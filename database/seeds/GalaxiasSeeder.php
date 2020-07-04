@@ -13,5 +13,6 @@ class GalaxiasSeeder extends Seeder
     public function run()
     {
         DB::table('galaxias')->insert(['nome' => 'Euclid']);
+        DB::table('galaxias')->insert(['nome' => 'Calypso']);
     }
 }

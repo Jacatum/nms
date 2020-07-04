@@ -59,8 +59,8 @@
         
         <div class="row">
             <div class="col-2">
-                <label for="sistema">Sistema:</label>
-                <select id="sistema" class="form-control" name="sistema">
+                <label for="sistema_id">Sistema:</label>
+                <select id="sistema_id" class="form-control" name="sistema_id">
                     <option selected value="">Sistema</option>
                     @foreach ($sistema as $s)
                         <option value="{{$s->id}}">{{$s->nome}}</option>
@@ -106,8 +106,8 @@
 
             <div class="row" id="form-mineral">
                 <div class="col-3">
-                    <label for="mineral">Mineral:</label>
-                    <select id="mineral" class="form-control" name="mineral[]">
+                    <label for="minerais">Mineral:</label>
+                    <select id="minerais" class="form-control" name="minerais[]">
                         <option selected value="">Mineral</option>
                         @foreach ($mineral as $m)
                             <option value="{{$m->id}}">{{$m->nome}}</option>
@@ -118,8 +118,8 @@
 
             <div class="row" id="form-biologico">
                 <div class="col-3">
-                    <label for="biologico">Biologico:</label>
-                    <select id="biologico" class="form-control" name="biologico[]">
+                    <label for="biologicos">Biologico:</label>
+                    <select id="biologicos" class="form-control" name="biologicos[]">
                         <option selected value="">Biologico</option>
                         @foreach ($biologico as $b)
                             <option value="{{$b->id}}">{{$b->nome}}</option>

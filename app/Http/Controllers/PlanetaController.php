@@ -49,8 +49,8 @@ class PlanetaController extends Controller
     {
         $planeta = Planeta::make($this->validator($request));
 
-        if($request->sistema && $request->sistema != null) {
-            if($sistema = Sistema::find($request->sistema)){
+        if($request->sistema_id && $request->sistema_id != null) {
+            if($sistema = Sistema::find($request->sistema_id)){
                 $sistema->planetas()->save($planeta);
             } else {
                 return redirect()->back()->withErrors(['sistema_invalid' => 'Sistema inválido']);
@@ -59,11 +59,24 @@ class PlanetaController extends Controller
             return redirect()->back()->withErrors(['sistema_missing' => 'Sistema Obrigatório']);
         }
 
+        if(isset($request['minerais'])) {
+            foreach($request['minerais'] as $mineral) {
+                $planeta->minerais()->attach($mineral);
+            }
+        }
+
+        if(isset($request['biologicos'])) {
+            foreach($request['biologicos'] as $biologico) {
+                $planeta->biologicos()->attach($biologico);
+            }
+        }
+
+        /*
         if($planeta->id) {
             $planeta->minerais()->sync($request->mineral??[]); // null coalescing
             $planeta->biologicos()->sync($request->biologico??[]); // null coalescing
         }
-
+        */
         return redirect()->action('PlanetaController@search_get')->with('success','Planeta Cadastrado!');
     }
 
@@ -78,7 +91,7 @@ class PlanetaController extends Controller
             'tempestade' => 'boolean|nullable',
             'tipo_id' => 'int|nullable',
             'clima_id' => 'int|nullable',
-            'sistema' => 'int|required'
+            'sistema_id' => 'int|required'
         ]);
     }
 
@@ -101,6 +114,7 @@ class PlanetaController extends Controller
     {
         #$campos = $this->validator($request);
         #$planetas = Planeta::with(['sistema', 'sistema.galaxia'])->search($campos)->get();
+        /*
         $campos = $request->validate([
             'agua' => 'boolean|nullable',
             'farm' => 'string|nullable',
@@ -111,9 +125,13 @@ class PlanetaController extends Controller
             'tipo_id' => 'int|nullable',
             'clima_id' => 'int|nullable',
             'sistema_id' => 'int|nullable',
-            'galaxia_id' => 'int|nullable'
+            'galaxia_id' => 'int|nullable',
+            #'mineral' => 'nullable',
+            #'biologico' => 'nullable'
         ]);
-        $planetas = Planeta::with(['sistema', 'galaxia'])->search($campos)->get();
+        */
+        $campos = $request->all();
+        $planetas = Planeta::with(['sistema', 'sistema.galaxia', 'minerais', 'biologicos'])->search($campos)->get();
         return view('/planeta/pesquisa', ['planetas' => $planetas]);
     }       
 

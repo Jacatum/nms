@@ -63,7 +63,7 @@
         </div>
         <div class="col-2">
             <label for="galaxia_id">Galaxia:</label>
-            <select id="galaxia_id" class="form-control" name="galaxia_id">
+            <select id="galaxia_id" class="form-control" name="galaxia">
                 <option selected value="">Galaxia</option>
                 @foreach ($galaxia as $g)
                     <option value="{{$g->id}}">{{$g->nome}}</option>
@@ -72,7 +72,7 @@
         </div>
         <div class="col-2">
             <label for="sistema_id">Sistema:</label>
-            <select id="sistema_id" class="form-control" name="sistema_id">
+            <select id="sistema_id" class="form-control" name="sistema">
                 <option selected value="">Sistema</option>
                 @foreach ($sistema as $s)
                 <option value="{{$s->id}}">{{$s->nome}}</option>

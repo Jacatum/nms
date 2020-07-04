@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Sistema;
+use Illuminate\Support\Facades\DB;
 
 class Planeta extends Model
 {
@@ -41,25 +42,29 @@ class Planeta extends Model
         'tipo_id',
         'clima_id',
         'portal',
+        'sistema_id'
     ];
 
     public static function make(array $attributes):Planeta
     {
         $planeta = new Planeta($attributes);
+
+        
         return $planeta;
     }
 
+    /*
     public function scopeSearch($query, array $params)
     {
-        #dd($params);
-        foreach ($params as $param_name => $param_value) {
-            switch ($param_name) {
+
+        foreach ($params as $param_name => $param_value) 
+        {
+            switch ($param_name) 
+            {
                 case 'nome':
                     $query->where($param_name,'LIKE',"%$param_value%");
                     break;
-                case 'galaxia_id':
-                    $query->where($param_name,$param_value);
-                    break;
+
                 default:
                     if($param_value !== null) {
                         $query->where($param_name,$param_value);  
@@ -69,17 +74,16 @@ class Planeta extends Model
         }
         return $query;
     }    
-    
-    public static function fullSearch($dados)
-    {
-        $resultado = Planeta::where(function($query) use($dados) {
+    */
 
+    public function scopeSearch($query, array $dados)
+    {
             if(isset($dados['nome'])) {
                 $query->where('nome', 'LIKE', '%' . $dados['nome'] . '%');
             }
 
             if(isset($dados['galaxia'])) {
-                $query->where('galaxia_id', $dados['galaxia']);
+                $query->where('galaxia_id', $dados['galaxia'])->with(['sistema']);
             }
 
             if(isset($dados['sistema'])) {
@@ -103,11 +107,11 @@ class Planeta extends Model
             }
 
             if(isset($dados['tipo'])) {
-                $query->where('tipo', $dados['tipo']);
+                $query->where('tipo_id', $dados['tipo']);
             }
 
             if(isset($dados['clima'])) {
-                $query->where('clima', $dados['clima']);
+                $query->where('clima_id', $dados['clima']);
             }
 
             if(isset($dados['portal'])) {
@@ -115,21 +119,25 @@ class Planeta extends Model
             }
             /*
             if(isset($dados['mineral'])) {
-                foreach($dados['mineral'] as $mi) {
-                    $query->where('mineral', $mi);
+                foreach($dados['mineral'] as $mi) 
+                {
+                    $query->has('minerais', $mi);
                 }
             }
-
+            
             if(isset($dados['biologico'])) {
-                foreach($dados['biologico'] as $bi) {
-                    $query->where('biologico', $bi);
+                foreach($dados['biologico'] as $bi) 
+                {
+                    $query->whereHas('biologicos', function($query) use($bi)
+                    {
+                        $query->where('id', $bi);
+                    });
                 }
             }
             */
-        })->get();
-        return $resultado;
+            
+            return $query;
     }
-    
 }
 
 // public function __construct($attributes)

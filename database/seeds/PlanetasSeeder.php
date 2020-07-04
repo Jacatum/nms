@@ -14,7 +14,7 @@ class PlanetasSeeder extends Seeder
     {
         DB::table('planetas')->insert([
             'nome' => 'Tuni VX',
-            'farm' => 'Sucata Recuperavel',
+            'farm' => 'Sucata Reciclavel',
             'portal' => 0,
             'sentinela' => '',
             'tempestade' => 1,
@@ -22,6 +22,18 @@ class PlanetasSeeder extends Seeder
             'tipo_id' => 1,
             'clima_id' => 1,
             'Sistema_id' => 1
+        ]);
+
+        DB::table('planetas')->insert([
+            'nome' => 'Xablau',
+            'farm' => 'Ossos Antigos',
+            'portal' => 1,
+            'sentinela' => '',
+            'tempestade' => 0,
+            'agua' => 1,
+            'tipo_id' => 3,
+            'clima_id' => 2,
+            'Sistema_id' => 2
         ]);
     }
 }
