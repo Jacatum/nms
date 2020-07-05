@@ -82,40 +82,44 @@ class Planeta extends Model
                 $query->where('nome', 'LIKE', '%' . $dados['nome'] . '%');
             }
 
-            if(isset($dados['galaxia'])) {
-                $query->where('galaxia_id', $dados['galaxia'])->with(['sistema']);
-            }
-
+            
             if(isset($dados['sistema'])) {
                 $query->where('sistema_id', $dados['sistema']);
             }
-
+            
             if(isset($dados['farm'])) {
                 $query->where('farm', $dados['farm']);
             }
-
+            
             if(isset($dados['sentinela'])) {
                 $query->where('sentinela', $dados['sentinela']);
             }
-
+            
             if(isset($dados['tempestade'])) {
                 $query->where('tempestade', $dados['tempestade']);
             }
-
+            
             if(isset($dados['agua'])) {
                 $query->where('agua', $dados['agua']);
             }
-
+            
             if(isset($dados['tipo'])) {
                 $query->where('tipo_id', $dados['tipo']);
             }
-
+            
             if(isset($dados['clima'])) {
                 $query->where('clima_id', $dados['clima']);
             }
-
+            
             if(isset($dados['portal'])) {
                 $query->where('portal', $dados['portal']);
+            }
+            
+            if(isset($dados['galaxia'])) {
+                $galaxia = $dados['galaxia'];
+                $query->whereHas('sistema.galaxia', function($query) use($galaxia) {
+                    $query->whereId($galaxia);
+                });
             }
 
             if($dados['mineral'][0] !== null) {
