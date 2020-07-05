@@ -131,7 +131,8 @@ class PlanetaController extends Controller
         ]);
         */
         $campos = $request->all();
-        $planetas = Planeta::with(['sistema', 'sistema.galaxia', 'minerais', 'biologicos'])->search($campos)->get();
+        #$planetas = Planeta::with(['sistema', 'sistema.galaxia', 'minerais', 'biologicos'])->search($campos)->get();
+        $planetas = Planeta::search($campos)->get();
         return view('/planeta/pesquisa', ['planetas' => $planetas]);
     }       
 

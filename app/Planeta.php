@@ -117,14 +117,20 @@ class Planeta extends Model
             if(isset($dados['portal'])) {
                 $query->where('portal', $dados['portal']);
             }
+
+            if($dados['mineral'][0] !== null) {
+                $minerais_ids = $dados['mineral'];
+                $query->whereHas('minerais', function($query) use($minerais_ids) {
+                        $query->whereIn('id', $minerais_ids);
+                    });
+            }
             
-            if(isset($dados['biologico'])) {
-                foreach($dados['biologico'] as $bi) {
-                        $query
-                            ->join('planetas_biologicos', 'planeta_id', '=', 'planetas_biologicos.planeta_id')
-                            ->where('planetas_biologicos.biologico_id', '=' ,$bi);
-                    }
-                }
+            if($dados['biologico'][0] !== null) {
+                $biologicos_ids = $dados['biologico'];
+                $query->whereHas('biologicos', function($query) use($biologicos_ids) {
+                    $query->whereIn('id', $biologicos_ids);
+                });
+            }
             
             return $query;
     }
