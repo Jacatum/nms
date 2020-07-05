@@ -23,7 +23,7 @@
     <form action="/planeta/novo" method="post">
         @csrf
         
-        <h1 style="text-align: center">Novo Planeta</h1>
+        <h1>Novo Planeta</h1>
         <div class="row">
             <div class="col-3">
                 <label for="nome">Nome:</label>

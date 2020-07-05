@@ -55,10 +55,10 @@
 <form action="/planeta/pesquisa" method="post">
     @csrf
     
-    <h1 style="text-align: center">Pesquisar Planetas</h1>
+    <h1 style="text-align: center" class="h1">Pesquisar Planetas</h1>
     <div class="row">
         <div class="col-4">
-            <label for="nome">Nome:</label>
+            <label for="nome" class="label">Nome:</label>
             <input id="nome" type="text" class="form-control" placeholder="Nome do Planeta" name="nome">
         </div>
         <div class="col-2">

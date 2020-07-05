@@ -1,0 +1,11 @@
+h1 {
+    text-align: center;
+    color: white;
+}
+
+#body {
+    background: black url(../imagens/bodyBG.jpg) no-repeat center;
+}
+label {
+    color: white;
+}
