@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
             BiologicosSeeder::class,
             TiposSeeder::class,
             ClimasSeeder::class,
-            PlanetasSeeder::class
+            PlanetasSeeder::class,
+            PlanetasMineriasSeeder::class,
+            PlanetasBiologicosSeeder::class
         ]);
     }
 }

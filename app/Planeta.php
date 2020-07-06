@@ -118,22 +118,24 @@ class Planeta extends Model
             if(isset($dados['galaxia'])) {
                 $galaxia = $dados['galaxia'];
                 $query->whereHas('sistema.galaxia', function($query) use($galaxia) {
-                    $query->whereId($galaxia);
+                    $query->where('id', $galaxia);
                 });
             }
 
             if($dados['mineral'][0] !== null) {
-                $minerais_ids = $dados['mineral'];
-                $query->whereHas('minerais', function($query) use($minerais_ids) {
-                        $query->whereIn('id', $minerais_ids);
+                foreach($dados['mineral'] as $mi) {
+                $query->whereHas('minerais', function($query) use($mi) {
+                        $query->where('id', $mi);
                     });
+                }
             }
             
             if($dados['biologico'][0] !== null) {
-                $biologicos_ids = $dados['biologico'];
-                $query->whereHas('biologicos', function($query) use($biologicos_ids) {
-                    $query->whereIn('id', $biologicos_ids);
-                });
+                foreach($dados['biologico'] as $bi) {
+                $query->whereHas('biologicos', function($query) use($bi) {
+                    $query->where('id', $bi);
+                    });
+                }
             }
             
             return $query;
