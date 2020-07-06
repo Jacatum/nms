@@ -2,23 +2,6 @@
 
 @section('body')
 
-    <style>
-        .row {
-            padding: 10px;
-        }
-
-        h1 {
-            padding: 10px;
-        }
-
-        #botoes {
-            margin-top: 40px;
-        }
-
-        #espaco {
-            margin-top: 10px;
-        }
-    </style>
 
     <form action="/planeta/novo" method="post">
         @csrf

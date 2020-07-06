@@ -1,13 +1,30 @@
 h1 {
     text-align: center;
     color: white;
+    padding: 10px;
+}
+
+p {
+    color: yellow;
+    text-align: center;
+    margin-top: 50px;
 }
 
 #body {
-    background: black url(../imagens/bodyBG.jpg) no-repeat center;
+    background: black url(../imagens/bodyBG.jpg) no-repeat;
+    background-size: cover;
 }
+
+.row {
+    padding: 10px;
+}
+
+#botoes {
+    margin-top: 40px;
+}
+
 label {
-    color: white;
+    color: yellow;
 }
 
 th {
@@ -15,5 +32,5 @@ th {
 }
 
 td {
-    color: white;
+    color: yellow;
 }
