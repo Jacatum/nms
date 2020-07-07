@@ -55,7 +55,7 @@
 <form action="/planeta/pesquisa" method="post">
     @csrf
     
-    <h1 style="text-align: center" class="h1">Pesquisar Planetas</h1>
+    <h1 style="text-align: center" class="h1">Pesquisar</h1>
     <div class="row">
         <div class="col-4">
             <label for="nome" class="label">Nome:</label>
@@ -87,15 +87,15 @@
                 <option value="Tenso">Tenso</option>
                 <option value="Agressivo">Agressivo</option>
             </select>
-                </div>
-            <div class="col-2">
-                <label for="tempestade">Tempestade:</label>
-                <select id="tempestade" class="form-control" name="tempestade">
-                    <option selected value="">Tempestade</option>
-                        <option value="1">Sim</option>
-                        <option value="0">Não</option>
-                    </select>
-                </div>
+        </div>
+        <div class="col-2">
+            <label for="tempestade">Tempestade:</label>
+            <select id="tempestade" class="form-control" name="tempestade">
+                <option selected value="">Tempestade</option>
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+            </select>
+        </div>
         </div>
         
         <div class="row">
@@ -112,8 +112,8 @@
                 <label for="agua">Agua:</label>
                 <select id="agua" class="form-control" name="agua">
                     <option selected value="">Agua</option>
-                        <option value="1">Sim</option>
-                        <option value="0">Não</option>
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
                 </select>
             </div>
             <div class="col-4">
@@ -138,36 +138,75 @@
                 <label for="portal">Portal:</label>
                 <select id="portal" class="form-control" name="portal">
                     <option selected value="">Portal</option>
-                        <option value="1">Sim</option>
-                        <option value="0">Não</option>
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
                 </select>
             </div>
-
         </div>
 
-            <div class="row" id="form-mineral">
-                <div class="col-3">
-                    <label for="mineral">Mineral:</label>
-                    <select id="mineral" class="form-control" name="mineral[]">
-                        <option selected value="">Mineral</option>
-                        @foreach ($mineral as $m)
-                            <option value="{{$m->id}}">{{$m->nome}}</option>
-                        @endforeach
-                    </select>
-                </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="sol">Cor do Sol:</label>
+                <select id="sol" class="form-control" name="sol">
+                    <option selected value="">Cor do Sol</option>
+                    <option value="Amarelo">Amarelo</option>
+                    <option value="Amarelo">Azul</option>
+                    <option value="Branco">Branco</option>
+                    <option value="Verde">Verde</option>
+                    <option value="Vermelho">Vermelho</option>
+                </select>
             </div>
+            <div class="col-3">
+                <label for="estacao">Estação espacial:</label>
+                <select id="estacao" class="form-control" name="estacao">
+                    <option selected value="">Estação Espacial</option>
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="raca">Raça:</label>
+                <select id="raca" class="form-control" name="raca">
+                    <option selected value="">Raça</option>
+                    @foreach ($racas as $ra)
+                        <option value="{{$ra->id}}">{{$ra->nome}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="conflito">conflito:</label>
+                <select id="conflito" class="form-control" name="conflito">
+                    <option selected value="">Conflito</option>
+                    @foreach ($conflitos as $co)
+                        <option value="{{$co->id}}">{{$co->nome}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
 
-            <div class="row" id="form-biologico">
-                <div class="col-3">
-                    <label for="biologico">Biologico:</label>
-                    <select id="biologico" class="form-control" name="biologico[]">
-                        <option selected value="">Biologico</option>
-                        @foreach ($biologico as $b)
-                            <option value="{{$b->id}}">{{$b->nome}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>    
+        <div class="row" id="form-mineral">
+            <div class="col-3">
+                <label for="mineral">Mineral:</label>
+                <select id="mineral" class="form-control" name="mineral[]">
+                    <option selected value="">Mineral</option>
+                    @foreach ($mineral as $m)
+                        <option value="{{$m->id}}">{{$m->nome}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="row" id="form-biologico">
+            <div class="col-3">
+                <label for="biologico">Biologico:</label>
+                <select id="biologico" class="form-control" name="biologico[]">
+                    <option selected value="">Biologico</option>
+                    @foreach ($biologico as $b)
+                        <option value="{{$b->id}}">{{$b->nome}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>    
 
         <div style="text-align: center;" id="botoes">   
             <button type="button" class="btn btn-primary" id="add-mineral">Mais Minerais</button>

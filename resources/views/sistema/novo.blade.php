@@ -17,6 +17,7 @@
                 <select id="sol" class="form-control" name="sol">
                     <option selected value="">Cor do Sol</option>
                     <option value="Amarelo">Amarelo</option>
+                    <option value="Azul">Azul</option>
                     <option value="Branco">Branco</option>
                     <option value="Verde">Verde</option>
                     <option value="Vermelho">Vermelho</option>

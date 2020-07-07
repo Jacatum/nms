@@ -5,63 +5,25 @@
   
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
+       
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+      </li>
 
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Galaxias
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/galaxia/nova">Nova</a>
-            <a class="dropdown-item" href="/galaxia/pesquisa">Pesquisa</a>
-          </div>
-        </li>
-
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sistemas
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="/sistema/novo">Novo</a>
-        <a class="dropdown-item" href="/sistema/pesquisa">Pesquisa</a>
-      </div>
-    </li>
-
-    </li>
-    <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Planetas
-    </a>
+          Novos
+        </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/planeta/novo">Novo</a>
-            <a class="dropdown-item" href="/planeta/pesquisa">Pesquisa</a>
+          <a class="dropdown-item" href="/galaxia/nova">Galaxia</a>
+          <a class="dropdown-item" href="/sistema/novo">Sistema</a>
+          <a class="dropdown-item" href="/planeta/novo">Planeta</a>
         </div>
-    </li>
+      </li>
 
-</li>
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Minerais
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="/mineral/novo">Novo</a>
-    <a class="dropdown-item" href="/mineral/pesquisa">Pesquisa</a>
-  </div>
-</li>
-
-</li>
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Biologicos
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="/biologico/novo">Novo</a>
-    <a class="dropdown-item" href="/biologico/pesquisa">Pesquisa</a>
-  </div>
-</li>
+      <li class="nav-item">
+          <a class="nav-link" href="/planeta/pesquisa">Pesquisa</a>
+      </li>
 
       </ul>
     </div>

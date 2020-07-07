@@ -25,12 +25,7 @@ class GalaxiaController extends Controller
      */
     public function create()
     {
-        $sistema = Sistema::with(['galaxia'])->get();
-        #var_dump($sistema);
-        return $sistema->toJson();
-        #$galaxia = Galaxia::with(['sistemas'])->get();
-        #return $galaxia->toJson();
-        #return view('/galaxia/nova');
+        return view('/galaxia/nova');
     }
 
     /**

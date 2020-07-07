@@ -10,6 +10,8 @@
                 <input id="nome" type="text" class="form-control" placeholder="Nome da Galaxia" name="nome">
             </div>
         </div>
-        <button class="btn btn-primary" type="submit">Cadastrar</button>
+        <div id="botoes">
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+        </div>
     </form>
 @endsection

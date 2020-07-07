@@ -115,6 +115,34 @@ class Planeta extends Model
                 $query->where('portal', $dados['portal']);
             }
             
+            if(isset($dados['sol'])) {
+                $sol = $dados['sol'];
+                $query->whereHas('sistema', function($query) use($sol) {
+                    $query->where('sol', $sol);
+                });
+            }
+
+            if(isset($dados['estacao'])) {
+                $estacao = $dados['estacao'];
+                $query->whereHas('sistema', function($query) use($estacao) {
+                    $query->where('estacao', $estacao);
+                });
+            }
+
+            if(isset($dados['raca'])) {
+                $raca = $dados['raca'];
+                $query->whereHas('sistema', function($query) use($raca) {
+                    $query->where('raca_id', $raca);
+                });
+            }
+
+            if(isset($dados['conflito'])) {
+                $conflito = $dados['conflito'];
+                $query->whereHas('sistema', function($query) use($conflito) {
+                    $query->where('conflito_id', $conflito);
+                });
+            }
+
             if(isset($dados['galaxia'])) {
                 $galaxia = $dados['galaxia'];
                 $query->whereHas('sistema.galaxia', function($query) use($galaxia) {

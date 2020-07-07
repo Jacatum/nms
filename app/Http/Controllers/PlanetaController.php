@@ -9,6 +9,8 @@ use App\Planeta;
 use App\Mineral;
 use App\Sistema;
 use App\Tipo;
+use App\Raca;
+use App\Conflito;
 use Illuminate\Http\Request;
 
 class PlanetaController extends Controller
@@ -35,7 +37,8 @@ class PlanetaController extends Controller
             'biologico' => Biologico::all(),
             'sistema' => Sistema::all(),
             'tipo' => Tipo::all(),
-            'clima' => Clima::all()
+            'clima' => Clima::all(),
+            'galaxias' => Galaxia::all(),
         ]);
     }
 
@@ -105,7 +108,9 @@ class PlanetaController extends Controller
             'sistema' => Sistema::all(),
             'tipo' => Tipo::all(),
             'clima' => Clima::all(),
-            'galaxia' => Galaxia::all()
+            'galaxia' => Galaxia::all(),
+            'racas' => Raca::all(),
+            'conflitos' => Conflito::all()
         ]);
     }
     
