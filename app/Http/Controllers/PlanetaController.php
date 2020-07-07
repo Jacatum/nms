@@ -149,7 +149,9 @@ class PlanetaController extends Controller
      */
     public function show($id)
     {
-        //
+        $planeta = Planeta::find($id);
+        #dd($planeta);
+        return view('/planeta/visualizar', ['planeta' => $planeta]);
     }
 
     /**

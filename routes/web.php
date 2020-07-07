@@ -28,5 +28,6 @@ Route::get('/planeta/novo', 'PlanetaController@create');
 Route::post('/planeta/novo', 'PlanetaController@store');
 Route::get('/planeta/pesquisa', 'PlanetaController@search_get');
 Route::post('/planeta/pesquisa', 'PlanetaController@search_post');
+Route::get('/planeta/visualizar/{id}', 'PlanetaController@show');
 
 

@@ -10,7 +10,7 @@
                         <th scope="col">Galaxia</th>
                         <th scope="col">Sistema</th>
                         <th scope="col">Planeta</th>
-                        <th style="text-align: center" scope="col">Editar</th>
+                        <th style="text-align: center" scope="col">Opções</th>
                     </tr>
                 </thead>
                 @foreach ($planetas as $planeta)
@@ -21,9 +21,7 @@
                             <td>{{$planeta->sistema->nome}}</td>
                             <td>{{$planeta->nome}}</td>
                             <td style="text-align: center">
-                                <a class="btn btn-sm btn-primary" href=""><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-sm btn-primary" href=""><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-sm btn-danger" href=""><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-sm btn-primary" href="/planeta/visualizar/{{$planeta->id}}"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
                     </tbody>
