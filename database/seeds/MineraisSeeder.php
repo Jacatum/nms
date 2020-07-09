@@ -39,7 +39,7 @@ class MineraisSeeder extends Seeder
         DB::table('minerais')->insert(['nome' => 'Emeril']);
         DB::table('minerais')->insert(['nome' => 'Emeril Ativado']);
         DB::table('minerais')->insert(['nome' => 'Índio']);
-        DB::table('minerais')->insert(['nome' => 'ìndio Ativado']);
+        DB::table('minerais')->insert(['nome' => 'Índio Ativado']);
         DB::table('minerais')->insert(['nome' => 'Metal Cromático']);
         DB::table('minerais')->insert(['nome' => 'Parafínio']);
         DB::table('minerais')->insert(['nome' => 'Pirita']);

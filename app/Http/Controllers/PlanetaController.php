@@ -33,10 +33,10 @@ class PlanetaController extends Controller
     public function create()
     {
         return view('/planeta/novo', [
-            'mineral' => Mineral::all(),
-            'biologico' => Biologico::all(),
+            'mineral' => Mineral::all()->sortBy('nome', '2'),
+            'biologico' => Biologico::all()->sortBy('nome','2'),
             'sistema' => Sistema::all(),
-            'tipo' => Tipo::all(),
+            'tipo' => Tipo::all()->sortBy('nome','2'),
             'clima' => Clima::all(),
             'galaxias' => Galaxia::all(),
         ]);

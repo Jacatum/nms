@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('body')
+        
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -25,10 +26,10 @@
                         <th scope="row">{{$planeta->id}}</th>
                         <td>{{$planeta->nome}}</td>
                         <td>{{$planeta->farm}}</td>
-                        <td>{{$planeta->portal}}</td>
+                        <td>{{$planeta->portal ? 'Sim' : 'Não'}}</td>
                         <td>{{$planeta->sentinela}}</td>
-                        <td>{{$planeta->tempestade}}</td>
-                        <td>{{$planeta->agua}}</td>
+                        <td>{{$planeta->tempestade ? 'Sim' : 'Não'}}</td>
+                        <td>{{$planeta->agua ? 'Sim' : 'Não'}}</td>
                         <td>{{$planeta->tipo->nome}}</td>
                         <td>{{$planeta->clima->nome}}</td>
                         <td>{{$planeta->sistema->nome}}</td>
